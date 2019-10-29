@@ -29,6 +29,10 @@ struct TransactionRow: View {
 
 struct TransactionRow_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionRow(transaction: transactionData[0])
+        Group {
+            TransactionRow(transaction: transactionData[0])
+            TransactionRow(transaction: transactionData[1])
+        }
+        .previewLayout(.fixed(width: 360, height: 65))
     }
 }

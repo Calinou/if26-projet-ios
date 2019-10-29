@@ -9,7 +9,7 @@
 import SwiftUI
 import Foundation
 
-struct Transaction: Hashable, Codable {
+struct Transaction: Hashable, Codable, Identifiable {
     var id: Int
     var amount: Int
     var date: Int
