@@ -28,5 +28,15 @@
         "contents": "Cinéma",
         "notes": "",
         "isTransfer": false
+    },
+    {
+        "id": 4,
+        "amount": 2000,
+        "date": 1572490000,
+        "account": "Espèces",
+        "category": "Divers",
+        "contents": "Retrait d'argent",
+        "notes": "Depuis la carte bancaire",
+        "isTransfer": true
     }
 ]
