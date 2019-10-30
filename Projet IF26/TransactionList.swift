@@ -9,13 +9,28 @@
 import SwiftUI
 
 struct TransactionList: View {
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
         NavigationView {
-            List(transactionData) { transaction in
-                NavigationLink(destination: TransactionDetail(transaction: transaction)) {
-                    TransactionRow(transaction: transaction)
+            List {
+                ForEach(userData.transactions) { transaction in
+                    NavigationLink(
+                        destination: TransactionDetail(transaction: transaction)
+                            .environmentObject(self.userData)
+                    ) {
+                        TransactionRow(transaction: transaction) // FIXME
+                    }
                 }
             }
+//            List(userData.transactions) { transaction in
+//                NavigationLink(
+//                    destination: TransactionDetail(transaction: transaction)
+//                        .environmentObject(self.userData)
+//                ) {
+//                    TransactionRow(transaction: transaction)
+//                }
+//            }
         }
         .navigationBarTitle(Text("Transactions"))
     }
@@ -24,5 +39,6 @@ struct TransactionList: View {
 struct TransactionList_Previews: PreviewProvider {
     static var previews: some View {
         TransactionList()
+            .environmentObject(UserData())
     }
 }

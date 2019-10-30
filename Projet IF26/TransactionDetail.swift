@@ -9,13 +9,42 @@
 import SwiftUI
 
 struct TransactionDetail: View {
-    var transaction: Transaction
+    @EnvironmentObject var userData: UserData
+    @Binding var transaction: Transaction
+    
+    var transactionIndex: Int {
+        userData.transactions.firstIndex(where: { $0.id == transaction.id }) ?? -1
+    }
     
     var body: some View {
-        VStack {
-            Text(String(transaction.id))
-            Text(String(format: "%.2f €", Double(transaction.amount) / 100))
-            Text(String(transaction.date))
+        List {
+            Text("Transaction n°\(transaction.id)")
+            
+            VStack(alignment: .leading) {
+                Text("Type").bold()
+//                Picker("Type") {
+//                    ForEach(Transaction.Kind.AllCases, id: \.self) { transferKind in
+//                        Text(transferKind.rawValue)
+//                    }
+//                }
+//                .pickerStyle(SegmentedPickerStyle())
+            }
+            
+            HStack {
+                Text("Montant").bold()
+                Divider()
+                TextField("Montant", text: $transaction.amountString)
+                    .keyboardType(.decimalPad)
+            }
+            
+            VStack(alignment: .leading) {
+                Text("Date").bold()
+//                DatePicker(
+//                    "Date",
+//                    selection: $transaction.date,
+//                    displayedComponents: .date
+//                )
+            }
             Text(transaction.account.rawValue)
             Text(transaction.category.rawValue)
             Text(transaction.contents)
@@ -28,6 +57,6 @@ struct TransactionDetail: View {
 
 struct TransactionDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionDetail(transaction: transactionData[0])
+        TransactionDetail(transaction: .constant(.default))
     }
 }

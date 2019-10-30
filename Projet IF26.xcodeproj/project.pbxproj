@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B42368F45B00B80C7F /* TransactionList.swift */; };
 		9A1490B72368F5B800B80C7F /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B62368F5B800B80C7F /* TransactionDetail.swift */; };
+		9A172A93236A3C30008DA0EC /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A172A92236A3C30008DA0EC /* UserData.swift */; };
 		9AB394572368A4C200F413B0 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394562368A4C200F413B0 /* Transaction.swift */; };
 		9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394592368A6E900F413B0 /* TransactionRow.swift */; };
 		9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		9A1490B42368F45B00B80C7F /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		9A1490B62368F5B800B80C7F /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
+		9A172A92236A3C30008DA0EC /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		9AB394562368A4C200F413B0 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9AB394582368A5A300F413B0 /* transactionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = transactionData.json; path = Resources/transactionData.json; sourceTree = "<group>"; };
 		9AB394592368A6E900F413B0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */,
 				9A1490B42368F45B00B80C7F /* TransactionList.swift */,
 				9A1490B62368F5B800B80C7F /* TransactionDetail.swift */,
+				9A172A92236A3C30008DA0EC /* UserData.swift */,
 			);
 			path = "Projet IF26";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */,
 				9ADF4E5C23624E45001FC3F3 /* AppDelegate.swift in Sources */,
 				9ADF4E5E23624E45001FC3F3 /* SceneDelegate.swift in Sources */,
+				9A172A93236A3C30008DA0EC /* UserData.swift in Sources */,
 				9A1490B72368F5B800B80C7F /* TransactionDetail.swift in Sources */,
 				9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */,
 				9AB394572368A4C200F413B0 /* Transaction.swift in Sources */,
