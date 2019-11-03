@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct TransactionDetail: View {
-    @EnvironmentObject var userData: UserData
+    //@EnvironmentObject var userData: UserData
     @Binding var transaction: Transaction
     
-    var transactionIndex: Int {
-        userData.transactions.firstIndex(where: { $0.id == transaction.id }) ?? -1
-    }
+//    var transactionIndex: Int {
+//        userData.transactions.firstIndex(where: { $0.id == transaction.id }) ?? -1
+//    }
     
     var body: some View {
         List {

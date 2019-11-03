@@ -9,17 +9,18 @@
 import SwiftUI
 
 struct TransactionList: View {
-    @EnvironmentObject var userData: UserData
+    //@EnvironmentObject var userData: UserData
+    @State var transactions = transactionData
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(userData.transactions) { transaction in
+                ForEach(transactions) { transaction in
                     NavigationLink(
                         destination: TransactionDetail(transaction: transaction)
-                            .environmentObject(self.userData)
                     ) {
                         TransactionRow(transaction: transaction) // FIXME
+                        //Text("hi")
                     }
                 }
             }
@@ -39,6 +40,5 @@ struct TransactionList: View {
 struct TransactionList_Previews: PreviewProvider {
     static var previews: some View {
         TransactionList()
-            .environmentObject(UserData())
     }
 }
