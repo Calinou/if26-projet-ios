@@ -9,20 +9,22 @@
 import SwiftUI
 
 struct TransactionList: View {
+    @ObservedObject var viewModel: TransactionDataViewModel
+    
     var body: some View {
         NavigationView {
-            List(transactionData) { transaction in
+            List(viewModel.transactions) { transaction in
                 NavigationLink(destination: TransactionDetail(transaction: transaction)) {
                     TransactionRow(transaction: transaction)
                 }
             }
         }
-        .navigationBarTitle(Text("Transactions"))
+        .navigationBarTitle(Text(viewModel.title))
     }
 }
 
-struct TransactionList_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionList()
-    }
-}
+//struct TransactionList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TransactionList()
+//    }
+//}

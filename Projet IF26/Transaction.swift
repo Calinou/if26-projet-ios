@@ -8,22 +8,14 @@
 
 import SwiftUI
 import Foundation
+import GRDB
 
-struct Transaction: Hashable, Codable, Identifiable {
+struct Transaction: Hashable, Identifiable {
     /// The transaction's unique identifier
-    var id: Int
+    var id: Int64?
     
     /// The amount of the transaction (in cents)
     var amount: Int
-    
-    var amountString: String {
-        get {
-            String(amount)
-        }
-        set(newAmount) {
-            amount = Int(newAmount) ?? 0
-        }
-    }
     
     /// The transaction date (stored as an UNIX timestamp)
     var date: Int
@@ -52,5 +44,23 @@ struct Transaction: Hashable, Codable, Identifiable {
         case food = "Nourriture"
         case leisure = "Loisirs"
         case other = "Divers"
+    }
+}
+
+extension Transaction: Codable, FetchableRecord, MutablePersistableRecord {
+    // Define database columns from CodingKeys
+    fileprivate enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let amount = Column(CodingKeys.amount)
+        static let date = Column(CodingKeys.date)
+        static let category = Column(CodingKeys.category)
+        static let contents = Column(CodingKeys.contents)
+        static let notes = Column(CodingKeys.notes)
+        static let isTransfer = Column(CodingKeys.isTransfer)
+    }
+    
+    // Update a transaction ID after it has been inserted in the database.
+    mutating func didInsert(with rowID: Int64, for column: String?) {
+        id = rowID
     }
 }
