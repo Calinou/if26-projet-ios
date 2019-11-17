@@ -18,8 +18,14 @@ struct TransactionList: View {
                     TransactionRow(transaction: transaction)
                 }
             }
+            .navigationBarTitle(Text(viewModel.title), displayMode: .inline)
+            .navigationBarItems(trailing:
+                NavigationLink(destination: TransactionCreate(transaction: .constant(.default))) {
+                    Text("Ajouter")
+                }
+            )
         }
-        .navigationBarTitle(Text(viewModel.title))
+        
     }
 }
 

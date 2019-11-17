@@ -16,6 +16,7 @@
 		9A9E378F2379E09700D10704 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E378E2379E09700D10704 /* Transactions.swift */; };
 		9A9E37912379E1A300D10704 /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E37902379E1A300D10704 /* TransactionDataViewModel.swift */; };
 		9A9E37932379E54F00D10704 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E37922379E54F00D10704 /* World.swift */; };
+		9AA8BFE5238208CE005A5EC6 /* TransactionCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8BFE4238208CE005A5EC6 /* TransactionCreate.swift */; };
 		9AB394572368A4C200F413B0 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394562368A4C200F413B0 /* Transaction.swift */; };
 		9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394592368A6E900F413B0 /* TransactionRow.swift */; };
 		9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */; };
@@ -37,6 +38,7 @@
 		9A9E378E2379E09700D10704 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		9A9E37902379E1A300D10704 /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		9A9E37922379E54F00D10704 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		9AA8BFE4238208CE005A5EC6 /* TransactionCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCreate.swift; sourceTree = "<group>"; };
 		9AB394562368A4C200F413B0 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9AB394582368A5A300F413B0 /* transactionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = transactionData.json; path = Resources/transactionData.json; sourceTree = "<group>"; };
 		9AB394592368A6E900F413B0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				9A1490B42368F45B00B80C7F /* TransactionList.swift */,
 				9A1712AB237B5B5E0020170A /* TransactionListController.swift */,
 				9A1490B62368F5B800B80C7F /* TransactionDetail.swift */,
+				9AA8BFE4238208CE005A5EC6 /* TransactionCreate.swift */,
 				9A9E378E2379E09700D10704 /* Transactions.swift */,
 				9A9E37902379E1A300D10704 /* TransactionDataViewModel.swift */,
 				9A9E37922379E54F00D10704 /* World.swift */,
@@ -201,6 +204,7 @@
 			files = (
 				9A9E378F2379E09700D10704 /* Transactions.swift in Sources */,
 				9A7AA549237625BE00C82F01 /* AppDatabase.swift in Sources */,
+				9AA8BFE5238208CE005A5EC6 /* TransactionCreate.swift in Sources */,
 				9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */,
 				9ADF4E5C23624E45001FC3F3 /* AppDelegate.swift in Sources */,
 				9ADF4E5E23624E45001FC3F3 /* SceneDelegate.swift in Sources */,
