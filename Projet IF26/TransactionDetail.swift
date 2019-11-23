@@ -14,7 +14,7 @@ struct TransactionDetail: View {
     var body: some View {
         VStack {
             Text(String(transaction.id ?? -1))
-            Text(String(format: "%.2f €", Double(transaction.amount) / 100))
+            Text(transaction.formatAmount())
             Text(String(transaction.date))
             Text(transaction.account.rawValue)
             Text(transaction.category.rawValue)

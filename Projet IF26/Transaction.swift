@@ -76,6 +76,17 @@ struct Transaction: Hashable, Identifiable {
         notes: "",
         isTransfer: false
     )
+    
+    /// Returns the amount as a formatted currency string (in French).
+    /// For example, a transaction whose amount is `451` would return `4,51 €`.
+    func formatAmount() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale(identifier: "fr_FR")
+
+        return numberFormatter.string(from: NSNumber(value: Double(self.amount) * 0.01))!
+    }
 }
 
 extension Transaction: Codable, FetchableRecord, MutablePersistableRecord {
