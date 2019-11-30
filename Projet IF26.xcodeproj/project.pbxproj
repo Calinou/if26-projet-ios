@@ -47,7 +47,6 @@
 		9ADF4E5823624E45001FC3F3 /* Projet IF26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projet IF26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADF4E5B23624E45001FC3F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ADF4E5D23624E45001FC3F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9ADF4E5F23624E45001FC3F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9ADF4E6123624E46001FC3F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ADF4E6423624E46001FC3F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9ADF4E6723624E46001FC3F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +95,6 @@
 				9A7AA5432376250900C82F01 /* Models */,
 				9ADF4E5B23624E45001FC3F3 /* AppDelegate.swift */,
 				9ADF4E5D23624E45001FC3F3 /* SceneDelegate.swift */,
-				9ADF4E5F23624E45001FC3F3 /* ContentView.swift */,
 				9ADF4E6123624E46001FC3F3 /* Assets.xcassets */,
 				9ADF4E6623624E46001FC3F3 /* LaunchScreen.storyboard */,
 				9ADF4E6923624E46001FC3F3 /* Info.plist */,
@@ -216,7 +214,6 @@
 				9A1712AC237B5B5E0020170A /* TransactionListController.swift in Sources */,
 				9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */,
 				9AB394572368A4C200F413B0 /* Transaction.swift in Sources */,
-				9ADF4E6023624E45001FC3F3 /* ContentView.swift in Sources */,
 				9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */,
 				9A0EF9312393140D00DF852D /* Home.swift in Sources */,
 				9A9E37912379E1A300D10704 /* TransactionDataViewModel.swift in Sources */,
