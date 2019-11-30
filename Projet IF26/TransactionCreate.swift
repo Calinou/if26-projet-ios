@@ -17,6 +17,20 @@ struct TransactionCreate: View {
             //TextField("Montant", text: $transaction.amount)
             TextField("Objet", text: $transaction.contents)
             TextField("Notes", text: $transaction.notes)
+            Button("Ajouter") {
+                // TODO: Use values from the above form
+                try! Current.transactions().insert(
+                    Transaction(
+                        amount: 5000,
+                        date: 1500000000,
+                        account: .cash,
+                        category: .other,
+                        contents: "Addition",
+                        notes: "Cher",
+                        isTransfer: false
+                    )
+                )
+            }
         }
         .navigationBarTitle("Nouvelle transaction")
     }

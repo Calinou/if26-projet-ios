@@ -19,6 +19,14 @@ struct Transactions {
         self.database = database
     }
     
+    func insert(_ transaction: Transaction) throws {
+        try database.write { db in
+            // Make a mutable copy as required by `insert()`
+            var transaction2 = transaction
+            try transaction2.insert(db)
+        }
+    }
+    
     struct TransactionData {
         /// All transactions
         var transactions: [Transaction]
