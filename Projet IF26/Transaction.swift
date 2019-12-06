@@ -76,7 +76,7 @@ struct Transaction: Hashable, Identifiable {
         notes: "",
         isTransfer: false
     )
-    
+
     /// Returns the amount as a formatted currency string (in French).
     /// For example, a transaction whose amount is `451` would return `4,51 €`.
     func formatAmount() -> String {

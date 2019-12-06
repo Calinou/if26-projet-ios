@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TransactionList: View {
     @ObservedObject var viewModel: TransactionDataViewModel
-    
+
     var body: some View {
         NavigationView {
             List(viewModel.transactions) { transaction in
@@ -25,7 +25,7 @@ struct TransactionList: View {
                 }
             )
         }
-        
+
     }
 }
 

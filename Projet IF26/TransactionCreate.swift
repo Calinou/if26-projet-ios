@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct TransactionCreate: View {
-    
+
     private enum Kind {
         case income
         case expense
         case transfer
     }
-    
+
     @Binding var transaction: Transaction
     @State private var kind = Kind.income
     @State private var amount = ""

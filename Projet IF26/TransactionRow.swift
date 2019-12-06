@@ -10,13 +10,13 @@ import SwiftUI
 
 struct TransactionRow: View {
     var transaction: Transaction
-    
+
     var body: some View {
         HStack {
             Text(transaction.category.rawValue)
                 .foregroundColor(.gray)
                 .frame(width: 80.0)
-            
+
             VStack(alignment: .leading) {
                 Text(transaction.contents)
                     // Increase the line height slightly
@@ -26,9 +26,9 @@ struct TransactionRow: View {
                     .foregroundColor(.gray)
             }
             .padding(.leading)
-            
+
             Spacer()
-            
+
             Text(
                 String(
                     // Add a "+" symbol for income to make it easier to discern.

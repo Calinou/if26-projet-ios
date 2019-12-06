@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up the Current world
         let dbPool = try! setupDatabase(application)
         Current = World(database: { dbPool })
-        
+
         return true
     }
 
@@ -33,19 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+
     // MARK: Database
-    
+
     private func setupDatabase(_ application: UIApplication) throws -> DatabasePool {
         let databaseURL = try FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("db.sqlite")
         let dbPool = try AppDatabase.openDatabase(atPath: databaseURL.path)
-        
+
         // Be a nice iOS citizen, don't consume too much memory
         dbPool.setupMemoryManagement(in: application)
-        
+
         return dbPool
     }
 }
-

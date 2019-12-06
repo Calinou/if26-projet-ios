@@ -12,7 +12,7 @@ import GRDBCombine
 class TransactionDataViewModel {
     @Published private var transactionData = Transactions.TransactionData.empty
     private var cancellables: [AnyCancellable] = []
-    
+
     init() {
         Current.transactions()
             .transactionDataPublisher()
@@ -23,7 +23,7 @@ class TransactionDataViewModel {
             .sink { [unowned self] in self.transactionData = $0 }
             .store(in: &cancellables)
     }
-    
+
     private static func title() -> String {
         "Transactions"
     }
@@ -38,7 +38,7 @@ extension TransactionDataViewModel {
             .map { _ in Self.title() }
             .eraseToAnyPublisher()
     }
-    
+
     /// A publisher for all transactions.
     var transactionsPublisher: AnyPublisher<[Transaction], Never> {
         $transactionData
@@ -54,7 +54,7 @@ extension TransactionDataViewModel: ObservableObject {
     var title: String {
         Self.title()
     }
-    
+
     /// The list of transactions.
     var transactions: [Transaction] {
         transactionData.transactions
