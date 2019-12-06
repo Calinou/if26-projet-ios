@@ -77,15 +77,38 @@ struct Transaction: Hashable, Identifiable {
         isTransfer: false
     )
 
-    /// Returns the amount as a formatted currency string (in French).
+    /// The amount as a formatted currency string (in French).
     /// For example, a transaction whose amount is `451` would return `4,51 €`.
-    func formatAmount() -> String {
+    var formattedAmount: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.usesGroupingSeparator = true
         numberFormatter.numberStyle = .currency
         numberFormatter.locale = Locale(identifier: "fr_FR")
 
-        return numberFormatter.string(from: NSNumber(value: Double(self.amount) * 0.01))!
+        // Add a "+" symbol for income to make it easier to discern.
+        // Negative numbers are already prefixed with a "-", no need to do it manually.
+        let prefix = !isTransfer && amount > 0 ? "+" : ""
+
+        return "\(prefix)\(numberFormatter.string(from: NSNumber(value: Double(self.amount) * 0.01))!)"
+    }
+
+    /// The color the amount should be displayed with.
+    var amountColor: Color {
+        return
+            isTransfer || amount == 0 ? .gray // Transfer/neutral
+            : amount > 0 ? .blue // Income
+            : .red // Expense
+    }
+
+    /// The date as a formatted string (in French).
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        dateFormatter.dateFormat = "d MMMM yyyy"
+
+        return dateFormatter.string(
+            from: Date(timeIntervalSince1970: TimeInterval(date))
+        )
     }
 }
 

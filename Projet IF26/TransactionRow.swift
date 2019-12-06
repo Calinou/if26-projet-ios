@@ -29,18 +29,8 @@ struct TransactionRow: View {
 
             Spacer()
 
-            Text(
-                String(
-                    // Add a "+" symbol for income to make it easier to discern.
-                    // Negative numbers are already prefixed with a "-", no need to do it manually.
-                    format: "\(!transaction.isTransfer && transaction.amount > 0 ? "+" : "")%.2f €",
-                    Double(transaction.amount) / 100
-                )
-            ).foregroundColor(
-                transaction.isTransfer || transaction.amount == 0 ? .gray :
-                transaction.amount > 0 ? .blue :
-                .red
-            )
+            Text(String(transaction.formattedAmount))
+                .foregroundColor(transaction.amountColor)
         }
         .padding()
     }
