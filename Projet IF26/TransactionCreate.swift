@@ -39,26 +39,39 @@ struct TransactionCreate: View {
             TextField("Objet", text: $contents)
             TextField("Notes", text: $notes)
 
-            Button("Ajouter") {
-                // The transaction kind isn't stored directly.
-                // Instead, the transaction amount is stored as a positive or negative integer
-                // depending on the transaction kind.
-                try! Current.transactions().insert(
-                    Transaction(
-                        amount:
-                            (self.kind == Kind.expense ? -1 : 1)
-                            * Int((Double(self.amount) ?? 0.0) * 100.0),
-                        date: Int64(self.date.timeIntervalSince1970),
-                        account: .cash,
-                        category: .other,
-                        contents: self.contents,
-                        notes: self.notes,
-                        isTransfer: self.kind == Kind.transfer
-                    )
-                )
+            Button(action: saveTransaction) {
+                Text("Ajouter")
+                    .accentColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background(Color.blue)
+                    .cornerRadius(4)
             }
+
+            Spacer()
         }
+        .padding()
         .navigationBarTitle("Nouvelle transaction", displayMode: .inline)
+    }
+
+    /// Persists a new transaction to the database.
+    func saveTransaction() {
+        // The transaction kind isn't stored directly.
+        // Instead, the transaction amount is stored as a positive or negative integer
+        // depending on the transaction kind.
+        try! Current.transactions().insert(
+            Transaction(
+                amount:
+                    (self.kind == Kind.expense ? -1 : 1)
+                    * Int((Double(self.amount) ?? 0.0) * 100.0),
+                date: Int64(self.date.timeIntervalSince1970),
+                account: .cash,
+                category: .other,
+                contents: self.contents,
+                notes: self.notes,
+                isTransfer: self.kind == Kind.transfer
+            )
+        )
     }
 }
 
