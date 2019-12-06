@@ -25,19 +25,21 @@ struct TransactionCreate: View {
 
     var body: some View {
         VStack {
-            DatePicker(selection: $date, displayedComponents: .date) {
-                Text("Date")
-            }
-
             Picker(selection: $kind, label: Text("Type")) {
                 Text("Recette").tag(Kind.income)
                 Text("Dépense").tag(Kind.expense)
                 Text("Transfert").tag(Kind.transfer)
-            }.pickerStyle(SegmentedPickerStyle())
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 12)
 
-            TextField("Montant", text: $amount)
-            TextField("Objet", text: $contents)
-            TextField("Notes", text: $notes)
+            DatePicker(selection: $date, displayedComponents: .date) {
+                Text("Date")
+            }
+
+            TextField("Montant", text: $amount).padding(.bottom, 8)
+            TextField("Objet", text: $contents).padding(.bottom, 8)
+            TextField("Notes", text: $notes).padding(.bottom, 8)
 
             Button(action: saveTransaction) {
                 Text("Ajouter")
@@ -47,6 +49,7 @@ struct TransactionCreate: View {
                     .background(Color.blue)
                     .cornerRadius(4)
             }
+            .padding(.top, 32)
 
             Spacer()
         }
