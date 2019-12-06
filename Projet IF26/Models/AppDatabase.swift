@@ -63,7 +63,7 @@ struct AppDatabase {
                 var player = Transaction(
                     id: nil,
                     amount: Int.random(in: -300...300) * 10,
-                    date: Int.random(in: 1400000000...1500000000),
+                    date: Int64.random(in: 1400000000...1500000000),
                     account: Transaction.Account.allCases.randomElement()!,
                     category: Transaction.Category.allCases.randomElement()!,
                     contents: contents.randomElement()!,

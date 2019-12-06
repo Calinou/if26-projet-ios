@@ -18,7 +18,7 @@ struct Transaction: Hashable, Identifiable {
     var amount: Int
 
     /// The transaction date (stored as an UNIX timestamp)
-    var date: Int
+    var date: Int64
 
     /// The account the transaction was made with
     var account: Account
@@ -49,7 +49,7 @@ struct Transaction: Hashable, Identifiable {
     init(
         id: Int64? = nil,
         amount: Int,
-        date: Int,
+        date: Int64,
         account: Account,
         category: Category,
         contents: String,
