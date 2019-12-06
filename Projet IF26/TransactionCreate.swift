@@ -9,30 +9,56 @@
 import SwiftUI
 
 struct TransactionCreate: View {
-    @Binding var transaction: Transaction
     
+    private enum Kind {
+        case income
+        case expense
+        case transfer
+    }
+    
+    @Binding var transaction: Transaction
+    @State private var kind = Kind.income
+    @State private var amount = ""
+    @State private var date = Date()
+    @State private var contents = ""
+    @State private var notes = ""
+
     var body: some View {
         VStack {
-            //TextField("Date", text: $transaction.date)
-            //TextField("Montant", text: $transaction.amount)
-            TextField("Objet", text: $transaction.contents)
-            TextField("Notes", text: $transaction.notes)
+            DatePicker(selection: $date, displayedComponents: .date) {
+                Text("Date")
+            }
+
+            Picker(selection: $kind, label: Text("Type")) {
+                Text("Recette").tag(Kind.income)
+                Text("Dépense").tag(Kind.expense)
+                Text("Transfert").tag(Kind.transfer)
+            }.pickerStyle(SegmentedPickerStyle())
+
+            TextField("Montant", text: $amount)
+            TextField("Objet", text: $contents)
+            TextField("Notes", text: $notes)
+
             Button("Ajouter") {
-                // TODO: Use values from the above form
+                // The transaction kind isn't stored directly.
+                // Instead, the transaction amount is stored as a positive or negative integer
+                // depending on the transaction kind.
                 try! Current.transactions().insert(
                     Transaction(
-                        amount: 5000,
-                        date: 1500000000,
+                        amount:
+                            (self.kind == Kind.expense ? -1 : 1)
+                            * Int((Double(self.amount) ?? 0.0) * 100.0),
+                        date: Int64(self.date.timeIntervalSince1970),
                         account: .cash,
                         category: .other,
-                        contents: "Addition",
-                        notes: "Cher",
-                        isTransfer: false
+                        contents: self.contents,
+                        notes: self.notes,
+                        isTransfer: self.kind == Kind.transfer
                     )
                 )
             }
         }
-        .navigationBarTitle("Nouvelle transaction")
+        .navigationBarTitle("Nouvelle transaction", displayMode: .inline)
     }
 }
 
