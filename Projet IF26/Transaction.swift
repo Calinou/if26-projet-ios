@@ -46,9 +46,8 @@ struct Transaction: Hashable, Identifiable {
         case other = "Divers"
     }
 
-    // FIXME: Default to auto-incrementing ID (0 doesn't act as one)
     init(
-        id: Int64? = 0,
+        id: Int64? = nil,
         amount: Int,
         date: Int,
         account: Account,
