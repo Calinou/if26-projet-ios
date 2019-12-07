@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0EC500239C141E0025C7F1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EC4FF239C141E0025C7F1 /* Settings.swift */; };
+		9A0EC502239C14D90025C7F1 /* SettingsDiscreetMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EC501239C14D90025C7F1 /* SettingsDiscreetMode.swift */; };
 		9A0EF9312393140D00DF852D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EF9302393140D00DF852D /* Home.swift */; };
 		9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B42368F45B00B80C7F /* TransactionList.swift */; };
 		9A1490B72368F5B800B80C7F /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B62368F5B800B80C7F /* TransactionDetail.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0EC4FF239C141E0025C7F1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9A0EC501239C14D90025C7F1 /* SettingsDiscreetMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDiscreetMode.swift; sourceTree = "<group>"; };
 		9A0EF9302393140D00DF852D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9A1490B42368F45B00B80C7F /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		9A1490B62368F5B800B80C7F /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				9A9E37922379E54F00D10704 /* World.swift */,
 				9A161F5B237DFBC80037E268 /* Combine+App.swift */,
 				9A0EF9302393140D00DF852D /* Home.swift */,
+				9A0EC4FF239C141E0025C7F1 /* Settings.swift */,
+				9A0EC501239C14D90025C7F1 /* SettingsDiscreetMode.swift */,
 			);
 			path = "Projet IF26";
 			sourceTree = "<group>";
@@ -206,12 +212,14 @@
 				9A7AA549237625BE00C82F01 /* AppDatabase.swift in Sources */,
 				9AA8BFE5238208CE005A5EC6 /* TransactionCreate.swift in Sources */,
 				9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */,
+				9A0EC502239C14D90025C7F1 /* SettingsDiscreetMode.swift in Sources */,
 				9ADF4E5C23624E45001FC3F3 /* AppDelegate.swift in Sources */,
 				9ADF4E5E23624E45001FC3F3 /* SceneDelegate.swift in Sources */,
 				9A1490B72368F5B800B80C7F /* TransactionDetail.swift in Sources */,
 				9A9E37932379E54F00D10704 /* World.swift in Sources */,
 				9A161F5C237DFBC80037E268 /* Combine+App.swift in Sources */,
 				9A1712AC237B5B5E0020170A /* TransactionListController.swift in Sources */,
+				9A0EC500239C141E0025C7F1 /* Settings.swift in Sources */,
 				9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */,
 				9AB394572368A4C200F413B0 /* Transaction.swift in Sources */,
 				9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */,

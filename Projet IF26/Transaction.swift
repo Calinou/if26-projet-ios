@@ -79,17 +79,28 @@ struct Transaction: Hashable, Identifiable {
 
     /// The amount as a formatted currency string (in French).
     /// For example, a transaction whose amount is `451` would return `4,51 €`.
+    /// When discreet mode is enabled, the amount will be hidden.
     var formattedAmount: String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.usesGroupingSeparator = true
-        numberFormatter.numberStyle = .currency
-        numberFormatter.locale = Locale(identifier: "fr_FR")
+        if UserDefaults.standard.bool(forKey: "discreetMode") {
+            // Add the "+"/"-" symbol manually as we aren't using the number here.
+            let prefix =
+                isTransfer || amount == 0 ? "" // Transfer/neutral
+                : amount > 0 ? "+" // Income
+                : "-" // Expense
 
-        // Add a "+" symbol for income to make it easier to discern.
-        // Negative numbers are already prefixed with a "-", no need to do it manually.
-        let prefix = !isTransfer && amount > 0 ? "+" : ""
+            return "\(prefix)##,## €"
+        } else {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.usesGroupingSeparator = true
+            numberFormatter.numberStyle = .currency
+            numberFormatter.locale = Locale(identifier: "fr_FR")
 
-        return "\(prefix)\(numberFormatter.string(from: NSNumber(value: Double(self.amount) * 0.01))!)"
+            // Add a "+" symbol for income to make it easier to discern.
+            // Negative numbers are already prefixed with a "-", no need to do it manually.
+            let prefix = !isTransfer && amount > 0 ? "+" : ""
+
+            return "\(prefix)\(numberFormatter.string(from: NSNumber(value: Double(self.amount) * 0.01))!)"
+        }
     }
 
     /// The color the amount should be displayed with.
