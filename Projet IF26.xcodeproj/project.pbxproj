@@ -22,8 +22,6 @@
 		9AA8BFE5238208CE005A5EC6 /* TransactionCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8BFE4238208CE005A5EC6 /* TransactionCreate.swift */; };
 		9AB394572368A4C200F413B0 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394562368A4C200F413B0 /* Transaction.swift */; };
 		9AB3945A2368A6E900F413B0 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB394592368A6E900F413B0 /* TransactionRow.swift */; };
-		9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */; };
-		9AD93B332368AA72005E0991 /* transactionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AB394582368A5A300F413B0 /* transactionData.json */; };
 		9ADF4E5C23624E45001FC3F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADF4E5B23624E45001FC3F3 /* AppDelegate.swift */; };
 		9ADF4E5E23624E45001FC3F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADF4E5D23624E45001FC3F3 /* SceneDelegate.swift */; };
 		9ADF4E6223624E46001FC3F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ADF4E6123624E46001FC3F3 /* Assets.xcassets */; };
@@ -45,9 +43,7 @@
 		9A9E37922379E54F00D10704 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		9AA8BFE4238208CE005A5EC6 /* TransactionCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCreate.swift; sourceTree = "<group>"; };
 		9AB394562368A4C200F413B0 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		9AB394582368A5A300F413B0 /* transactionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = transactionData.json; path = Resources/transactionData.json; sourceTree = "<group>"; };
 		9AB394592368A6E900F413B0 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
-		9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLoader.swift; sourceTree = "<group>"; };
 		9ADF4E5823624E45001FC3F3 /* Projet IF26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projet IF26.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADF4E5B23624E45001FC3F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ADF4E5D23624E45001FC3F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,9 +100,7 @@
 				9ADF4E6923624E46001FC3F3 /* Info.plist */,
 				9ADF4E6323624E46001FC3F3 /* Preview Content */,
 				9AB394562368A4C200F413B0 /* Transaction.swift */,
-				9AB394582368A5A300F413B0 /* transactionData.json */,
 				9AB394592368A6E900F413B0 /* TransactionRow.swift */,
-				9AB3945B2368A7B000F413B0 /* TransactionLoader.swift */,
 				9A1490B42368F45B00B80C7F /* TransactionList.swift */,
 				9A1712AB237B5B5E0020170A /* TransactionListController.swift */,
 				9A1490B62368F5B800B80C7F /* TransactionDetail.swift */,
@@ -194,7 +188,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD93B332368AA72005E0991 /* transactionData.json in Resources */,
 				9ADF4E6823624E46001FC3F3 /* LaunchScreen.storyboard in Resources */,
 				9ADF4E6523624E46001FC3F3 /* Preview Assets.xcassets in Resources */,
 				9ADF4E6223624E46001FC3F3 /* Assets.xcassets in Resources */,
@@ -222,7 +215,6 @@
 				9A0EC500239C141E0025C7F1 /* Settings.swift in Sources */,
 				9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */,
 				9AB394572368A4C200F413B0 /* Transaction.swift in Sources */,
-				9AB3945C2368A7B000F413B0 /* TransactionLoader.swift in Sources */,
 				9A0EF9312393140D00DF852D /* Home.swift in Sources */,
 				9A9E37912379E1A300D10704 /* TransactionDataViewModel.swift in Sources */,
 			);

@@ -31,9 +31,33 @@ struct TransactionRow: View {
 struct TransactionRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TransactionRow(transaction: transactionData[0]) // Income
-            TransactionRow(transaction: transactionData[1]) // Expense
-            TransactionRow(transaction: transactionData[3]) // Transfer
+            TransactionRow(transaction: Transaction(
+                amount: 50000,
+                date: 1500000000,
+                account: .card,
+                category: .other,
+                contents: "Exemple de recette",
+                notes: "Quelques notes...",
+                isTransfer: false
+            ))
+            TransactionRow(transaction: Transaction(
+                amount: -1515,
+                date: 1500000000,
+                account: .card,
+                category: .other,
+                contents: "Exemple de dépense",
+                notes: "Quelques notes...",
+                isTransfer: false
+            ))
+            TransactionRow(transaction: Transaction(
+                amount: 1337,
+                date: 1500000000,
+                account: .card,
+                category: .other,
+                contents: "Exemple de transfert",
+                notes: "Quelques notes...",
+                isTransfer: true
+            ))
         }
         .previewLayout(.fixed(width: 360, height: 65))
     }
