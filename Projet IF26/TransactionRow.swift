@@ -29,7 +29,7 @@ struct TransactionRow: View {
 
             Spacer()
 
-            Text(String(transaction.formattedAmount))
+            Text(transaction.formattedAmount)
                 .foregroundColor(transaction.amountColor)
         }
         .padding()
