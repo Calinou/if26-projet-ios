@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Projet IF26
-//
-//  Created by Hugo Locurcio on 24/10/2019.
-//  Copyright © 2019 UTT. All rights reserved.
-//
-
 import UIKit
 import Combine
 import GRDB

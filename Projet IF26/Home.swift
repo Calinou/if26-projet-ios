@@ -1,11 +1,3 @@
-//
-//  Home.swift
-//  Projet IF26
-//
-//  Created by Hugo Locurcio on 30/11/2019.
-//  Copyright © 2019 UTT. All rights reserved.
-//
-
 import SwiftUI
 
 struct Home: View {

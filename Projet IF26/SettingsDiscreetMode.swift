@@ -1,11 +1,3 @@
-//
-//  SettingsDiscreetMode.swift
-//  Projet IF26
-//
-//  Created by Hugo Locurcio on 07/12/2019.
-//  Copyright © 2019 UTT. All rights reserved.
-//
-
 import SwiftUI
 
 struct SettingsDiscreetMode: View {
