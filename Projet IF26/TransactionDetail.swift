@@ -3,6 +3,9 @@ import SwiftUI
 struct TransactionDetail: View {
     var transaction: Transaction
 
+    /// If `true`, display the transaction deletion confirmation dialog.
+    @State private var showDeleteConfirmation = false
+
     /// The first column's width (with the property names).
     let keyWidth: CGFloat = 100
 
@@ -46,6 +49,29 @@ struct TransactionDetail: View {
             }
         }
         .navigationBarTitle(Text(transaction.contents), displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: { self.showDeleteConfirmation = true }) {
+                Text("Supprimer")
+            }
+            // Make the button easier to click
+            .padding(.vertical)
+            .foregroundColor(.red)
+            .alert(isPresented: $showDeleteConfirmation) {
+                Alert(
+                    title: Text("Voulez-vous vraiment supprimer cette transaction ?"),
+                    message: Text("Cette opération ne peut pas être annulée."),
+                    primaryButton: .destructive(Text("Supprimer")) {
+                        self.deleteTransaction()
+                    },
+                    secondaryButton: .cancel(Text("Annuler"))
+                )
+            }
+        )
+    }
+
+    /// Removes the currently displayed transaction from the database.
+    func deleteTransaction() {
+        try! Current.transactions().delete(transaction)
     }
 }
 

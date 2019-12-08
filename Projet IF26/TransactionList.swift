@@ -15,6 +15,8 @@ struct TransactionList: View {
                 NavigationLink(destination: TransactionCreate(transaction: .constant(.default))) {
                     Text("Ajouter")
                 }
+                // Make the navigation link easier to click
+                .padding(.vertical)
             )
         }
 

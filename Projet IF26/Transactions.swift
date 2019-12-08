@@ -11,11 +11,19 @@ struct Transactions {
         self.database = database
     }
 
+    /// Inserts the transaction object into the database.
     func insert(_ transaction: Transaction) throws {
         try database.write { db in
             // Make a mutable copy as required by `insert()`
             var transaction2 = transaction
             try transaction2.insert(db)
+        }
+    }
+
+    /// Deletes the transaction object from the database (if it exists in the database).
+    func delete(_ transaction: Transaction) throws {
+        try database.write { db in
+            try transaction.delete(db)
         }
     }
 
