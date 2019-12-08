@@ -15,21 +15,11 @@ class TransactionDataViewModel {
             .sink { [unowned self] in self.transactionData = $0 }
             .store(in: &cancellables)
     }
-
-    private static func title() -> String {
-        "Transactions"
-    }
 }
 
 // MARK: UIViewController support
 
 extension TransactionDataViewModel {
-    /// A publisher for the transactions list's title.
-    var titlePublisher: AnyPublisher<String, Never> {
-        $transactionData
-            .map { _ in Self.title() }
-            .eraseToAnyPublisher()
-    }
 
     /// A publisher for all transactions.
     var transactionsPublisher: AnyPublisher<[Transaction], Never> {
@@ -42,10 +32,6 @@ extension TransactionDataViewModel {
 // MARK: SwiftUI support
 
 extension TransactionDataViewModel: ObservableObject {
-    /// The transactions list's title.
-    var title: String {
-        Self.title()
-    }
 
     /// The list of transactions.
     var transactions: [Transaction] {

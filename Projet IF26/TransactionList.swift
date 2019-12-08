@@ -10,7 +10,7 @@ struct TransactionList: View {
                     TransactionRow(transaction: transaction)
                 }
             }
-            .navigationBarTitle(Text(viewModel.title), displayMode: .inline)
+            .navigationBarTitle("Transactions", displayMode: .inline)
             .navigationBarItems(trailing:
                 NavigationLink(destination: TransactionCreate(transaction: .constant(.default))) {
                     Text("Ajouter")
