@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TransactionRow: View {
+
     var transaction: Transaction
 
     var body: some View {
@@ -29,6 +30,7 @@ struct TransactionRow: View {
 }
 
 struct TransactionRow_Previews: PreviewProvider {
+
     static var previews: some View {
         Group {
             TransactionRow(transaction: Transaction(

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SettingsDiscreetMode: View {
+
     // FIXME: The setting isn't restored when switching back and forth the view.
     // When switching to the view, it's always initialized to the value
     // that was defined when the application started.
@@ -48,6 +49,7 @@ struct SettingsDiscreetMode: View {
 }
 
 struct SettingsDiscreetMode_Previews: PreviewProvider {
+
     static var previews: some View {
         SettingsDiscreetMode()
     }

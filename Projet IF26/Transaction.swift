@@ -3,6 +3,7 @@ import Foundation
 import GRDB
 
 struct Transaction: Hashable, Identifiable {
+
     /// The transaction's unique identifier
     var id: Int64?
 

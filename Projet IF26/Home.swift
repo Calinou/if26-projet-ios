@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct Home: View {
+
     let transactionDataViewModel: TransactionDataViewModel
 
     var body: some View {

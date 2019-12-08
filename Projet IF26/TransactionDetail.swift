@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TransactionDetail: View {
+
     var transaction: Transaction
 
     /// If `true`, display the transaction deletion confirmation dialog.

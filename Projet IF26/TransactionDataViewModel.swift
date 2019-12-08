@@ -2,6 +2,7 @@ import Combine
 import GRDBCombine
 
 class TransactionDataViewModel {
+
     @Published private var transactionData = Transactions.TransactionData.empty
     private var cancellables: [AnyCancellable] = []
 

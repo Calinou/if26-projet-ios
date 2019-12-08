@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TransactionList: View {
+
     @ObservedObject var viewModel: TransactionDataViewModel
 
     var body: some View {

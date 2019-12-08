@@ -5,6 +5,7 @@ import Dispatch
 
 /// Transactions is responsible for high-level operations on the transactions database.
 struct Transactions {
+
     private let database: DatabaseWriter
 
     init(database: DatabaseWriter) {
@@ -28,6 +29,7 @@ struct Transactions {
     }
 
     struct TransactionData {
+
         /// All transactions
         var transactions: [Transaction]
 

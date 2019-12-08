@@ -1,7 +1,8 @@
 import GRDB
 
-/// Dependency injection
+/// Dependency injection.
 struct World {
+
     /// Access to the Transactions database.
     func transactions() -> Transactions { Transactions(database: database()) }
 

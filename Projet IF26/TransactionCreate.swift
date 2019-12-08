@@ -71,6 +71,7 @@ struct TransactionCreate: View {
 }
 
 struct TransactionCreate_Previews: PreviewProvider {
+
     static var previews: some View {
         TransactionCreate(transaction: .constant(.default))
     }
