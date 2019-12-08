@@ -6,14 +6,22 @@ struct TransactionRow: View {
 
     var body: some View {
         HStack {
-            Text(transaction.category.rawValue)
-                .foregroundColor(.gray)
-                .frame(width: 80.0)
+            VStack {
+                Text(transaction.category.rawValue)
+                    // Increase the line height slightly
+                    .frame(width: 80.0, height: 23.0)
+                    .foregroundColor(.gray)
+
+                Text(transaction.formattedShortDate)
+                    .foregroundColor(.gray)
+                    .font(.footnote)
+            }
 
             VStack(alignment: .leading) {
                 Text(transaction.contents)
                     // Increase the line height slightly
                     .frame(height: 23.0)
+
                 Text(transaction.account.rawValue)
                     .font(.footnote)
                     .foregroundColor(.gray)
@@ -25,7 +33,7 @@ struct TransactionRow: View {
             Text(transaction.formattedAmount)
                 .foregroundColor(transaction.amountColor)
         }
-        .padding()
+        .padding(.vertical, 6)
     }
 }
 

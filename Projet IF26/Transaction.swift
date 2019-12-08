@@ -114,6 +114,17 @@ struct Transaction: Hashable, Identifiable {
             from: Date(timeIntervalSince1970: TimeInterval(date))
         )
     }
+
+    /// The date as a short formatted string (in French).
+    var formattedShortDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+
+        return dateFormatter.string(
+            from: Date(timeIntervalSince1970: TimeInterval(date))
+        )
+    }
 }
 
 extension Transaction: Codable, FetchableRecord, MutablePersistableRecord {
