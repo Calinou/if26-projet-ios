@@ -18,18 +18,6 @@ class TransactionDataViewModel {
     }
 }
 
-// MARK: UIViewController support
-
-extension TransactionDataViewModel {
-
-    /// A publisher for all transactions.
-    var transactionsPublisher: AnyPublisher<[Transaction], Never> {
-        $transactionData
-            .map { $0.transactions }
-            .eraseToAnyPublisher()
-    }
-}
-
 // MARK: SwiftUI support
 
 extension TransactionDataViewModel: ObservableObject {
