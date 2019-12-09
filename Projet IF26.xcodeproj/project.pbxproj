@@ -12,6 +12,7 @@
 		9A0EF9312393140D00DF852D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EF9302393140D00DF852D /* Home.swift */; };
 		9A1490B52368F45B00B80C7F /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B42368F45B00B80C7F /* TransactionList.swift */; };
 		9A1490B72368F5B800B80C7F /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1490B62368F5B800B80C7F /* TransactionDetail.swift */; };
+		9A1752B0239EFB6D0098C2DB /* SettingsAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1752AF239EFB6D0098C2DB /* SettingsAbout.swift */; };
 		9A7AA549237625BE00C82F01 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7AA548237625BE00C82F01 /* AppDatabase.swift */; };
 		9A7AA54C237626AE00C82F01 /* GRDBCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7AA54B237626AE00C82F01 /* GRDBCombine */; };
 		9A9E378F2379E09700D10704 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E378E2379E09700D10704 /* Transactions.swift */; };
@@ -33,6 +34,7 @@
 		9A0EF9302393140D00DF852D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9A1490B42368F45B00B80C7F /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		9A1490B62368F5B800B80C7F /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
+		9A1752AF239EFB6D0098C2DB /* SettingsAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAbout.swift; sourceTree = "<group>"; };
 		9A7AA548237625BE00C82F01 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		9A9E378E2379E09700D10704 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		9A9E37902379E1A300D10704 /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				9A9E37922379E54F00D10704 /* World.swift */,
 				9A0EF9302393140D00DF852D /* Home.swift */,
 				9A0EC4FF239C141E0025C7F1 /* Settings.swift */,
+				9A1752AF239EFB6D0098C2DB /* SettingsAbout.swift */,
 				9A0EC501239C14D90025C7F1 /* SettingsDiscreetMode.swift */,
 			);
 			path = "Projet IF26";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1752B0239EFB6D0098C2DB /* SettingsAbout.swift in Sources */,
 				9A9E378F2379E09700D10704 /* Transactions.swift in Sources */,
 				9A7AA549237625BE00C82F01 /* AppDatabase.swift in Sources */,
 				9AA8BFE5238208CE005A5EC6 /* TransactionCreate.swift in Sources */,

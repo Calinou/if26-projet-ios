@@ -8,6 +8,10 @@ struct Settings: View {
                 NavigationLink(destination: SettingsDiscreetMode()) {
                     Text("Mode discret")
                 }
+
+                NavigationLink(destination: SettingsAbout()) {
+                    Text("À propos de l'application")
+                }
             }
             .navigationBarTitle("Paramètres", displayMode: .inline)
         }
