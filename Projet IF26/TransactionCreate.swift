@@ -32,8 +32,8 @@ struct TransactionCreate: View {
                 Text("Date")
             }
 
-            TextField("Montant", text: $amount).padding(.bottom, 8)
-            TextField("Objet", text: $contents).padding(.bottom, 8)
+            TextField("Montant (requis)", text: $amount).padding(.bottom, 8)
+            TextField("Objet (requis)", text: $contents).padding(.bottom, 8)
             TextField("Notes", text: $notes).padding(.bottom, 8)
 
             Button(action: saveTransaction) {
@@ -45,6 +45,9 @@ struct TransactionCreate: View {
                     .cornerRadius(4)
             }
             .padding(.top, 32)
+            // Amount and contents are required
+                .disabled(amount.count == 0 || contents.count == 0)
+                .opacity((amount.count == 0 || contents.count == 0) ? 0.5 : 1.0)
 
             if (transactionSaved) {
                 Text("Transaction ajoutée !")
