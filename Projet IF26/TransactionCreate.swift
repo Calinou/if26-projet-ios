@@ -15,6 +15,9 @@ struct TransactionCreate: View {
     @State private var contents = ""
     @State private var notes = ""
 
+    /// If `true`, display a message to tell the user the transaction has been saved.
+    @State private var transactionSaved = false
+
     var body: some View {
         VStack {
             Picker(selection: $kind, label: Text("Type")) {
@@ -43,6 +46,12 @@ struct TransactionCreate: View {
             }
             .padding(.top, 32)
 
+            if (transactionSaved) {
+                Text("Transaction ajoutée !")
+                    .padding()
+                    .foregroundColor(.green)
+            }
+
             Spacer()
         }
         .padding()
@@ -70,6 +79,15 @@ struct TransactionCreate: View {
                 isTransfer: self.kind == Kind.transfer
             )
         )
+
+        transactionSaved = true
+
+        // Reset all fields so the user can enter another transaction more easily
+        date = Date()
+        amount = ""
+        contents = ""
+        notes = ""
+        kind = .income
     }
 }
 
