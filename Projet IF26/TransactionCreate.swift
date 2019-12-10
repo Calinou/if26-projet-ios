@@ -51,6 +51,9 @@ struct TransactionCreate: View {
 
     /// Persists a new transaction to the database.
     func saveTransaction() {
+        // Handle French decimal separators
+        let amountString = self.amount.replacingOccurrences(of: ",", with: ".")
+
         // The transaction kind isn't stored directly.
         // Instead, the transaction amount is stored as a positive or negative integer
         // depending on the transaction kind.
@@ -58,7 +61,7 @@ struct TransactionCreate: View {
             Transaction(
                 amount:
                     (self.kind == Kind.expense ? -1 : 1)
-                    * Int((Double(self.amount) ?? 0.0) * 100.0),
+                        * Int((Double(amountString) ?? 0.0) * 100.0),
                 date: Int64(self.date.timeIntervalSince1970),
                 account: .cash,
                 category: .other,
