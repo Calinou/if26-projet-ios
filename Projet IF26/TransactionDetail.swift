@@ -7,46 +7,57 @@ struct TransactionDetail: View {
     /// If `true`, display the transaction deletion confirmation dialog.
     @State private var showDeleteConfirmation = false
 
+    /// If `true`,  display a message to tell the user the transaction has been deleted.
+    @State private var transactionDeleted = false
+
     /// The first column's width (with the property names).
     let keyWidth: CGFloat = 100
 
     var body: some View {
-        Form {
-            HStack {
-                Text("Type").fontWeight(.bold).frame(width: keyWidth)
-                Text(
-                    transaction.isTransfer ? "Transfert"
-                    : transaction.amount > 0 ? "Recette"
-                    : "Dépense"
-                )
+        VStack {
+            if (transactionDeleted) {
+                Text("Transaction supprimée !")
+                    .padding()
+                    .foregroundColor(.green)
             }
-            HStack {
-                Text("Montant").fontWeight(.bold).frame(width: keyWidth)
-                Text(transaction.formattedAmount)
-                    .foregroundColor(transaction.amountColor)
-            }
-            HStack {
-                Text("Date").fontWeight(.bold).frame(width: keyWidth)
-                Text(transaction.formattedDate)
-            }
-            HStack {
-                Text("Compte").fontWeight(.bold).frame(width: keyWidth)
-                Text(transaction.account.rawValue)
-            }
-            HStack {
-                Text("Catégorie").fontWeight(.bold).frame(width: keyWidth)
-                Text(transaction.category.rawValue)
-            }
-            HStack {
-                Text("Objet").fontWeight(.bold).frame(width: keyWidth)
-                Text(transaction.contents)
-            }
-            HStack {
-                Text("Notes").fontWeight(.bold).frame(width: keyWidth)
-                Text(!transaction.notes.isEmpty ? transaction.notes : "Pas de notes")
-                    .foregroundColor(
-                        !transaction.notes.isEmpty ? .black : .init(hue: 0, saturation: 0, brightness: 0.7)
+
+            Form {
+                HStack {
+                    Text("Type").fontWeight(.bold).frame(width: keyWidth)
+                    Text(
+                        transaction.isTransfer ? "Transfert"
+                        : transaction.amount > 0 ? "Recette"
+                        : "Dépense"
                     )
+                }
+                HStack {
+                    Text("Montant").fontWeight(.bold).frame(width: keyWidth)
+                    Text(transaction.formattedAmount)
+                        .foregroundColor(transaction.amountColor)
+                }
+                HStack {
+                    Text("Date").fontWeight(.bold).frame(width: keyWidth)
+                    Text(transaction.formattedDate)
+                }
+                HStack {
+                    Text("Compte").fontWeight(.bold).frame(width: keyWidth)
+                    Text(transaction.account.rawValue)
+                }
+                HStack {
+                    Text("Catégorie").fontWeight(.bold).frame(width: keyWidth)
+                    Text(transaction.category.rawValue)
+                }
+                HStack {
+                    Text("Objet").fontWeight(.bold).frame(width: keyWidth)
+                    Text(transaction.contents)
+                }
+                HStack {
+                    Text("Notes").fontWeight(.bold).frame(width: keyWidth)
+                    Text(!transaction.notes.isEmpty ? transaction.notes : "Pas de notes")
+                        .foregroundColor(
+                            !transaction.notes.isEmpty ? .black : .init(hue: 0, saturation: 0, brightness: 0.7)
+                        )
+                }
             }
         }
         .navigationBarTitle(Text(transaction.contents), displayMode: .inline)
@@ -54,9 +65,11 @@ struct TransactionDetail: View {
             Button(action: { self.showDeleteConfirmation = true }) {
                 Text("Supprimer")
             }
+            // Don't allow removing the transaction more than once
+            .disabled(transactionDeleted)
             // Make the button easier to click
             .padding(.vertical)
-            .foregroundColor(.red)
+            .foregroundColor(transactionDeleted ? .gray : .red)
             .alert(isPresented: $showDeleteConfirmation) {
                 Alert(
                     title: Text("Voulez-vous vraiment supprimer cette transaction ?"),
@@ -73,6 +86,8 @@ struct TransactionDetail: View {
     /// Removes the currently displayed transaction from the database.
     func deleteTransaction() {
         try! Current.transactions().delete(transaction)
+
+        transactionDeleted = true
     }
 }
 
