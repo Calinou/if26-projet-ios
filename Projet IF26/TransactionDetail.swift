@@ -15,7 +15,7 @@ struct TransactionDetail: View {
 
     var body: some View {
         VStack {
-            if (transactionDeleted) {
+            if transactionDeleted {
                 Text("Transaction supprimée !")
                     .padding()
                     .foregroundColor(.green)
@@ -85,7 +85,7 @@ struct TransactionDetail: View {
 
     /// Removes the currently displayed transaction from the database.
     func deleteTransaction() {
-        try! Current.transactions().delete(transaction)
+        try! current.transactions().delete(transaction)
 
         transactionDeleted = true
     }

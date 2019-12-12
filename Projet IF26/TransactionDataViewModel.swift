@@ -7,7 +7,7 @@ class TransactionDataViewModel {
     private var cancellables: [AnyCancellable] = []
 
     init() {
-        Current.transactions()
+        current.transactions()
             .transactionDataPublisher()
             // Perform a synchronous initial fetch
             .fetchOnSubscription()

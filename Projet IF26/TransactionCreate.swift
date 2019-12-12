@@ -49,7 +49,7 @@ struct TransactionCreate: View {
                 .disabled(amount.count == 0 || contents.count == 0)
                 .opacity((amount.count == 0 || contents.count == 0) ? 0.5 : 1.0)
 
-            if (transactionSaved) {
+            if transactionSaved {
                 Text("Transaction ajoutée !")
                     .padding()
                     .foregroundColor(.green)
@@ -69,7 +69,7 @@ struct TransactionCreate: View {
         // The transaction kind isn't stored directly.
         // Instead, the transaction amount is stored as a positive or negative integer
         // depending on the transaction kind.
-        try! Current.transactions().insert(
+        try! current.transactions().insert(
             Transaction(
                 amount:
                     (self.kind == Kind.expense ? -1 : 1)

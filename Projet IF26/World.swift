@@ -16,4 +16,4 @@ struct World {
     }
 }
 
-var Current = World(database: { fatalError("Database is uninitialized.") })
+var current = World(database: { fatalError("Database is uninitialized.") })

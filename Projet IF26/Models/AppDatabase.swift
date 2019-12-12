@@ -45,15 +45,15 @@ struct AppDatabase {
 
         migrator.registerMigration("createPlayer") { db in
             // Create a table
-            try db.create(table: "transaction") { t in
-                t.autoIncrementedPrimaryKey("id")
-                t.column("amount", .integer).notNull()
-                t.column("date", .datetime).notNull()
-                t.column("account", .integer).notNull()
-                t.column("category", .integer).notNull()
-                t.column("contents", .text).notNull()
-                t.column("notes", .text)
-                t.column("isTransfer", .boolean).notNull()
+            try db.create(table: "transaction") { table in
+                table.autoIncrementedPrimaryKey("id")
+                table.column("amount", .integer).notNull()
+                table.column("date", .datetime).notNull()
+                table.column("account", .integer).notNull()
+                table.column("category", .integer).notNull()
+                table.column("contents", .text).notNull()
+                table.column("notes", .text)
+                table.column("isTransfer", .boolean).notNull()
             }
         }
 

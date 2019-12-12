@@ -40,7 +40,6 @@ struct SettingsDiscreetMode: View {
             }
             .padding(.top, 36)
 
-
             Spacer()
         }
         .padding()
