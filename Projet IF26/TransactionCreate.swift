@@ -2,16 +2,12 @@ import SwiftUI
 
 struct TransactionCreate: View {
 
-    private enum Kind {
-        case income
-        case expense
-        case transfer
-    }
-
     @Binding var transaction: Transaction
-    @State private var kind = Kind.income
+    @State private var kind = Transaction.Kind.income
     @State private var amount = ""
     @State private var date = Date()
+    @State private var account = Transaction.Account.cash
+    @State private var category = Transaction.Category.food
     @State private var contents = ""
     @State private var notes = ""
 
@@ -21,9 +17,9 @@ struct TransactionCreate: View {
     var body: some View {
         VStack {
             Picker(selection: $kind, label: Text("Type")) {
-                Text("Recette").tag(Kind.income)
-                Text("Dépense").tag(Kind.expense)
-                Text("Transfert").tag(Kind.transfer)
+                Text("Recette").tag(Transaction.Kind.income)
+                Text("Dépense").tag(Transaction.Kind.expense)
+                Text("Transfert").tag(Transaction.Kind.transfer)
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding(.bottom, 12)
@@ -33,6 +29,22 @@ struct TransactionCreate: View {
             }
 
             TextField("Montant (requis)", text: $amount).padding(.bottom, 8)
+
+            Picker(selection: $account, label: Text("Compte")) {
+                Text("Espèces").tag(Transaction.Account.cash)
+                Text("Carte bancaire").tag(Transaction.Account.card)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 12)
+
+            Picker(selection: $category, label: Text("Catégorie")) {
+                Text("Nourriture").tag(Transaction.Category.food)
+                Text("Loisirs").tag(Transaction.Category.leisure)
+                Text("Autre").tag(Transaction.Category.other)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 12)
+
             TextField("Objet (requis)", text: $contents).padding(.bottom, 8)
             TextField("Notes", text: $notes).padding(.bottom, 8)
 
@@ -72,25 +84,27 @@ struct TransactionCreate: View {
         try! current.transactions().insert(
             Transaction(
                 amount:
-                    (self.kind == Kind.expense ? -1 : 1)
+                    (self.kind == Transaction.Kind.expense ? -1 : 1)
                         * Int((Double(amountString) ?? 0.0) * 100.0),
                 date: Int64(self.date.timeIntervalSince1970),
-                account: .cash,
-                category: .other,
+                account: self.account,
+                category: self.category,
                 contents: self.contents,
                 notes: self.notes,
-                isTransfer: self.kind == Kind.transfer
+                isTransfer: self.kind == Transaction.Kind.transfer
             )
         )
 
         transactionSaved = true
 
         // Reset all fields so the user can enter another transaction more easily
-        date = Date()
+        kind = .income
         amount = ""
+        date = Date()
+        account = .cash
+        category = .food
         contents = ""
         notes = ""
-        kind = .income
     }
 }
 

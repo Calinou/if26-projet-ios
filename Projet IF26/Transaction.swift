@@ -28,11 +28,20 @@ struct Transaction: Hashable, Identifiable {
     /// If `true`, the transaction is a transfer from an account to another
     var isTransfer: Bool
 
+    /// The transaction type. This is only used for presentational purposes; it's not persisted into the database.
+    enum Kind: String, CaseIterable, Codable, Hashable {
+        case income = "Recette"
+        case expense = "Dépense"
+        case transfer = "Transfert"
+    }
+
+    /// The account the transaction was made with
     enum Account: String, CaseIterable, Codable, Hashable {
         case cash = "Espèces"
         case card = "Carte bancaire"
     }
 
+    /// The category the transaction is part of
     enum Category: String, CaseIterable, Codable, Hashable {
         case food = "Nourriture"
         case leisure = "Loisirs"
