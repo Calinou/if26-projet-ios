@@ -43,7 +43,7 @@ struct AppDatabase {
     static var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
 
-        migrator.registerMigration("createPlayer") { db in
+        migrator.registerMigration("createTransactionsTable") { db in
             // Create a table
             try db.create(table: "transaction") { table in
                 table.autoIncrementedPrimaryKey("id")
@@ -56,28 +56,6 @@ struct AppDatabase {
                 table.column("isTransfer", .boolean).notNull()
             }
         }
-
-        migrator.registerMigration("fixtures") { db in
-            // Populate the players table with random data
-            for _ in 0..<8 {
-                var player = Transaction(
-                    id: nil,
-                    amount: Int.random(in: -300...300) * 10,
-                    date: Int64.random(in: 1400000000...1500000000),
-                    account: Transaction.Account.allCases.randomElement()!,
-                    category: Transaction.Category.allCases.randomElement()!,
-                    contents: contents.randomElement()!,
-                    notes: notes.randomElement()!,
-                    isTransfer: false
-                )
-                try player.insert(db)
-            }
-        }
-
-//        // Migrations for future application versions will be inserted here:
-//        migrator.registerMigration(...) { db in
-//            ...
-//        }
 
         return migrator
     }
