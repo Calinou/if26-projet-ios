@@ -21,3 +21,10 @@ swiftlint
 # Tente de résoudre automatiquement les violations du style de code Swift
 swiftlint autocorrect
 ```
+
+## Licence
+
+Copyright © 2019-2020 Hugo Locurcio
+
+Sauf mention contraire, les fichiers présents dans ce dépôt sont disponibles
+sous licence MIT. Consultez [LICENSE.md](LICENSE.md) pour plus d'informations.
